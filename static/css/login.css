@@ -1,0 +1,128 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Spartan', sans-serif;
+}
+
+/* Body and Background */
+body {
+    width: 100%;
+    background-color: #e7d19c;
+}
+
+/* Logo Styles */
+.logo {
+    width: 250px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    margin: 20px auto; /* Center the logo and add margin */
+}
+
+/* Header Styles */
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 60px;
+    background-color: #e7d19c;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Navbar Styles */
+#navbar {
+    display: flex;
+    align-items: center;
+}
+
+#navbar li {
+    list-style: none;
+    padding: 0 20px;
+}
+
+#navbar li a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    transition: color 0.3s ease;
+}
+
+#navbar li a:hover {
+    color: #088178;
+}
+
+/* Login Form Container */
+.container {
+    background: rgba(255, 255, 255);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 90%; /* Responsive width */
+    max-width: 400px; /* Maximum width */
+    text-align: center;
+    margin: 40px auto; /* Center the container and add margin */
+}
+
+/* Heading Styles */
+h1 {
+    font-size: 2rem;
+    color: #222;
+    margin-bottom: 1.5rem;
+}
+
+/* Input Group */
+.input-group {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+/* Input Styles */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Button Styles */
+button {
+    width: 100%;
+    padding: 0.7rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Additional Paragraph and Link Styles */
+p {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

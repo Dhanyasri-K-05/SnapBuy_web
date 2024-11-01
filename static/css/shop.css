@@ -1,0 +1,394 @@
+
+/* to make the website cover entire screen */
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Spartan',sans-serif;
+}
+h1{
+    font-size: 50px;
+    line-height: 64px;
+    color:#222;
+}
+h2{
+    font-size: 46px;
+    line-height: 54px;
+    color:#222;
+
+}
+h4{
+    font-size: 20px;;
+    color:#222;
+}
+h6{
+    font-weight: 700;
+    font-size: 12px;
+}
+p{
+    font-size: 16px;
+    color:#465b52;
+    margin:15px 0 20px 0;
+}
+.section.m1{
+ margin:40px 0;
+}
+.section-p1{
+    padding:40px 80px;
+}
+body{
+    width:100%
+}
+.logo{
+    width:100px;
+    height: 90px;
+
+}
+#header
+{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 60px;
+    background-color: #e7d19c;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+    margin:0px;
+    z-index:999;
+    /* for the header to be fixed  */
+    position: sticky;
+    top:0;
+    left:0;
+    /* z index for the navogation bar to remain fixed */
+    z-index: 1000;
+}
+/* for the navigation to appear in one row */
+#navbar
+{
+    display:flex; 
+    align-items: center;
+    justify-content: space-between;
+}
+/* to remove the bullet */
+#navbar li
+{
+    list-style: none;
+    padding: 0 20px;
+}
+/* to remove the underline */
+#navbar li a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color:#1a1a1a;
+    transition: color 0.3 ease;
+}
+/* hover effect */
+#navbar li a:hover{
+    color:#088178;
+}
+#hero{
+    background-image: url(\hero.jpeg);
+    height:90vh;
+    width:100%;
+    /* for the image to be in center */
+    background-position: top 25% right 80%;
+    /* for the image to appear fully */
+    background-size: cover;
+    padding: 0 80px;
+    /* to make the text appaer in center */
+    display:flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+#hero h4{
+    padding-bottom: 15px;
+}
+#hero h1{
+    color:#088178;
+}
+#hero button{
+    background-image: url(/button.png);
+    background-color: transparent;
+    color:#088178;
+    border:0;
+    padding: 20px 70px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    font-weight: 600;
+    font-size: 15px;
+}
+/* styling feature boxes */
+#feature .featureBox
+{
+    width:180px;
+    text-align: center;
+    padding: 25px 15px;
+    box-shadow: 10px 10px 34px rgba(0,0,0,0.2);
+    border:1px solid #cce7d0;
+    border-radius: 4px;
+    margin:15px 0;
+}
+#feature .featureBox:hover{
+    box-shadow: 10px 10px 54px rgba(70,62,221,0.1);
+}
+#feature .featureBox h6{
+    display: inline-block;
+    padding: 9px 8px 6px 8px;
+    line-height: 1px;
+    border-radius: 4px;
+    color: #088178;
+    /* background-color: #fddde4; */
+}
+#feature .featureBox img{
+ width:100%;
+ height:125px;
+ margin-bottom: 10px;
+ 
+}
+#feature
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.proContainer
+{
+    display:flex;
+    justify-content: space-between;
+    padding: 10px;
+    flex-wrap: wrap;
+}
+#product1
+{
+    text-align: center;
+}
+#product1 .product
+{
+    width:23%;
+    min-width: 250px;
+    padding:10px 10px;
+    border: 1px solid #cce7d0;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 20px 20px 34px rgba(0,0,0,0.1);
+    margin:15px;
+    transition: box-shadow 0.2s ease;
+    /* for the cart to appear in the same line (not as block element ie. next line */
+    position: relative;
+}
+#product1 .product:hover{
+    box-shadow: 20px 20px 34px rgba(0,0,0,0.15);
+}
+
+#product1 .product img{
+    width:100%;
+    height:300px;
+    border-radius: 20px;
+}
+#product1 .description
+{
+    text-align: start;
+    padding: 10px;
+}
+#product1 .description span{
+    color:#606063;
+    font-size: 12px;
+}
+#product1 .description h5{
+    padding-top: 7px;
+    color:#1a1a1a;
+    font-size: 14px;
+}
+#product1 .description i{
+        font-size: 12px;
+        color: goldenrod;
+}
+#product1 .description h4{
+    padding-top: 7px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #088178;
+}
+#product1 .cart{
+    width:40px;
+    height:40px;
+    line-height: 40px;
+    border-radius: 50px;
+    background-color: #e8f6ea;
+    color: #088178; 
+    border: 1px solid #cce7d0;
+    position: absolute;
+    bottom: 20px;
+    right:10px;
+}
+#banner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    background-image: url(img/banner/b2.jpg);
+    width:100%;
+    background-position: cover;
+    height:250px;
+}
+#banner h4{
+    color: white;
+    font-size: 16px;
+}
+#banner h2{
+    color: white;
+    font-size: 30px;
+    padding:20px 0px;
+}
+#banner span{
+    color: rgb(208, 37, 37);
+    font-size: 40px;
+}
+button.normal
+{
+    font-size: 14px;
+    font-weight: 600;
+    padding:15px 30px;
+    color: black;
+    background-color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: 0.2s ease;
+}
+#banner button:hover{
+    background-color:rgb(72, 187, 72);
+    color: white;
+}
+#smBanner
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 50px;
+}
+
+#smBanner .bannerBox
+{
+    
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    background-image: url(img/banner/b17.jpg);
+    min-width: 580px;
+    background-position: cover;
+    height:300px;
+    padding:30px;
+    flex: 1; 
+    background-size: cover;
+}
+#smBanner h4{
+    color: white;
+    font-size: 20px;
+    font-weight: 300;
+}
+#smBanner h2{
+    color: white;
+    font-size: 28px;
+    font-weight: 800;
+}
+#smBanner span{
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    padding-bottom: 30px;
+}
+#smBanner button:hover{
+    background-color: rgb(72, 187, 72);
+    color: white;
+}
+#smBanner .bannerBox2{
+    background-image: url(img/banner/b10.jpg);
+    flex: 1; 
+    background-size: cover;
+}
+/* Styling for Navigation Bar */
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 60px;
+    background-color: #e7d19c;
+}
+
+/* Navigation List */
+#navbar ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+/* Remove bullet points and padding */
+#navbar li {
+    padding: 0 20px;
+}
+
+/* Navigation Links */
+#navbar li a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect */
+#navbar li a:hover {
+    color: #088178;
+}
+
+/* Centering the Search Bar */
+.search-bar {
+    flex-grow: 1; /* Allow the search bar to take available space */
+    display: flex;
+    justify-content: center; /* Center the contents of the search bar */
+}
+
+/* Styling for Search Bar */
+.search-bar input {
+    width:1000px;
+    margin-top: 40px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #cce7d0;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.search-bar button {
+    margin-top: 40px;
+    padding: 10px 15px;
+    background-color: #088178;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #066a65;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+h2 {
+    text-align: center; /* Center align the text */
+    margin-top: 30px; /* Add top margin (adjust as needed) */
+    font-family: 'Spartan', sans-serif; /* Use the same font as your site */
+    font-weight: 600; /* You can adjust the font weight */
+}
+
+
+
