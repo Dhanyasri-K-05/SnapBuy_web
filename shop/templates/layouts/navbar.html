@@ -1,0 +1,22 @@
+
+
+
+
+<div>
+    <ul id="navbar">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'shop' %}">Shop</a></li>
+        <!-- <li><a href="blog.html">Blog</a></li> -->
+        <li><a href="{% url 'about' %}">About</a></li>
+        <!-- <li><a href="contact.html">Contact</a></li> -->
+        <li><a href="{% url 'cart' %}"><i class="fa-solid fa-cart-shopping"></i></a></li>
+
+        {% if request.user.is_authenticated %}
+            <li><a href="#"><i class="fa-solid fa-user"></i> {{ request.user.username }}</a></li>
+            <li><a href="{% url 'logout' %}"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+        {% else %}
+            <li><a href="{% url 'login' %}"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
+            
+        {% endif %}
+    </ul>
+</div>

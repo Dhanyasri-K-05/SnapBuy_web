@@ -1,0 +1,42 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SnapBuy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+   <!--<script src="{% static 'js/login.js' %}" defer></script> -->  <!-- Include the validation script -->
+</head>
+<body>
+    <!-- Logo Section -->
+    <div class="logo-container">
+        <img src="{% static 'images/test.png' %}" class="logo" alt="SnapBuy Logo"> <!-- Logo at the top -->
+    </div>
+
+    <!-- Login Form Container -->
+    <div class="container">
+        <h1>Login</h1>
+        <form method="POST" action="{% url 'login' %}" onsubmit="validateLoginForm(event);">
+            {% csrf_token %}
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+            <p>Don't have an account? <a href="{% url 'register' %}">Sign up here</a></p>
+        </form>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 SnapBuy. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

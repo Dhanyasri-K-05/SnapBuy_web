@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+    <!-- to use fonts from fontawsome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- to import google font -->
+<link href="https://fonts.googleapis.com/css2?family=Spartan:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- header-navigation bar -->
+<section id="header">
+    <!-- logo -->
+        <a href="{% url 'home' %}"> 
+            <img src="{% static 'images/test.png' %}" class="logo" alt=""> 
+        </a>
+    <!-- navigation bar -->
+    {% include 'layouts/navbar.html'%}
+
+    </section>
+    <section id="aboutimg">
+        <!-- <h1>About Us</h1>
+        <p>Our journey, mission, and the amazing people behind our brand.</p> -->
+    </section>
+
+    <div class="section-p1">
+        <h2>Who We Are</h2>
+        <p>We are a dynamic and innovative e-commerce company dedicated to bringing you the best quality products at unbeatable prices. Our mission is to revolutionize the shopping experience by offering a curated selection of products designed to meet your needs and lifestyle.</p>
+        
+        <h3>Our Mission</h3>
+        <p>Our mission is simple: to make shopping easy, accessible, and enjoyable for everyone. We believe in the power of quality products and exceptional customer service. We strive to exceed expectations and build a community around our brand where our customers feel valued and appreciated.</p>
+        
+        <h3>Meet Our Team</h3>
+        <div class="team-members">
+            <div class="team-member">
+                <img src="img/about/team1.jpg" alt="Jane Doe - CEO">
+                <h4>Jane Doe - CEO</h4>
+                <p>With over 15 years of experience in retail and e-commerce, Jane leads our company with vision and passion. She believes in building strong customer relationships and creating a brand that people trust.</p>
+            </div>
+            <div class="team-member">
+                <img src="img/about/team2.jpg" alt="John Smith - Head of Product">
+                <h4>John Smith - Head of Product</h4>
+                <p>John oversees our product development team, ensuring that we offer innovative and high-quality products. His dedication to excellence sets the standard for our brand.</p>
+            </div>
+            <div class="team-member">
+                <img src="img/about/team3.webp" alt="Alice Johnson - Marketing Lead">
+                <h4>Alice Johnson - Marketing Lead</h4>
+                <p>Alice brings creativity and innovation to our marketing team. She is dedicated to creating campaigns that engage and inspire our community.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Your Company Name. All rights reserved.</p>
+    </footer>
+</body>
+</html>

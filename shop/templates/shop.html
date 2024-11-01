@@ -1,0 +1,1182 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- to use fonts from fontawsome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- to import google font -->
+<link href="https://fonts.googleapis.com/css2?family=Spartan:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<!-- link css file -->
+<link rel="stylesheet" href="{% static 'css/shop.css' %}">
+    <title>SnapBuy</title>
+</head>
+
+<body>
+   
+    
+<!-- header-navigation bar -->
+<section id="header">
+<!-- logo -->
+    <a href="{% url 'home' %}"> 
+        <img src="{% static 'images/test.png' %}"class="logo" alt=""> 
+    </a>
+    <nav id="navbar">
+        <ul>
+            <li><a href="#men">Men</a></li>
+            <li><a href="#women">Women</a></li>
+            <li><a href="#kids">Kids</a></li>
+        </ul>
+    </nav>
+<!-- navigation bar -->
+{% include 'layouts/navbar.html'%}
+
+</section>
+ <div class="search-bar">
+            <input type="text" placeholder="Search products..." />
+            <button type="submit">Search</button>
+        </div>
+
+<!-- featured products -->
+
+
+<section id="women">
+    <h2>Women's Collection</h2>
+    <!-- Product items -->
+    
+    <section id="product1" class="section-p1">
+      
+        <div class="proContainer">
+            {% for item in women_products %}
+            <div class="product">
+                <a href="{% url 'product_detail' item.id %}">
+                <img src="{{item.product_image.url}}">
+            </a>
+                <div class="description">
+                   <span>{{item.vendor}}</span> 
+                    <h5>{{item.name}}</h5>
+                    <div class="rating">
+                       <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i> 
+                    </div>
+                   <h4>Rs.{{item.selling_price}}</h4> 
+                </div>
+                <a href="#" class="add-to-cart"data-id="{{item.id}}" data-name={{item.name}} data-price="{{item.selling_price}}">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+
+            {% endfor %}
+    
+       <!--    <div class="product">
+                <img src="img/products/f2.jpg">
+                <div class="description">
+                    <span>Luna</span>
+                    <h5>Party Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.2500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Party Dress" data-price="2500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f3.3.jpg">
+                <div class="description">
+                    <span>Biba</span>
+                    <h5>Floral Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.3500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Floral Dress" data-price="3500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                   
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f4.4.webp">
+                <div class="description">
+                    <span>Liva</span>
+                    <h5>Cotton Pant</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.1000</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Cotton Pant" data-price="1000">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                    
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f5.5.jpg">
+                <div class="description">
+                    <span>addidas</span>
+                    <h5>T-Shirts</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.5500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="T-Shirts" data-price="5500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                  
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f6.6.jpg">
+                <div class="description">
+                    <span>Biba</span>
+                    <h5>Grey Ruffle Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.4000</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Grey Ruffle Dress" data-price="4000">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                   
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f7.7.jpg">
+                <div class="description">
+                    <span>Leriya fashion</span>
+                    <h5>Women Co-ord Set</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.1500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Women Co-ord Set" data-price="1500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                    
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f8.jpg">
+                <div class="description">
+                    <span>Anni Designer</span>
+                    <h5>Rayon Blend Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.1500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Rayon Blend Dress" data-price="1500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                    
+                </a>
+            </div>
+            <div class="product">
+                <img src="img/products/n8.jpg">
+                <div class="description">
+                    <span>Biba</span>
+                    <h5>Rayon Blend Shirt</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.1500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Rayon Blend Dress" data-price="1500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                    
+                </a>
+            </div>
+        </div> -->
+    </section>  
+    
+    <!-- new arrival -->
+ <!--   <section id="product1" class="section-p1">
+        <div class="proContainer">
+            <div class="product">
+                <img src="img/products/f1.jpg">
+                <div class="description">
+                    <span>Toplot</span>
+                    <h5>Cotton Blend Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.1500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Cotton Blend Dress" data-price="1500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f2.2.webp">
+                <div class="description">
+                    <span>Sheetal</span>
+                    <h5>Women Solid Black Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.2500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Women Solid Black Dress" data-price="2500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f3.jpg">
+                <div class="description">
+                    <span>Yashika</span>
+                    <h5>Printed Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.3500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Printed Dress" data-price="3500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f4.4.webp">
+                <div class="description">
+                    <span>Indo era</span>
+                    <h5>Multicolour Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.1000</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Multicolour Dress" data-price="1000">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f5.5.jpg">
+                <div class="description">
+                    <span>Presha</span>
+                    <h5>Fit and Flare Top</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.5500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Fit and Flare Top" data-price="5500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f6.6.jpg">
+                <div class="description">
+                    <span>Kzully</span>
+                    <h5>Crepe Midi Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.4000</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Crepe Midi Dress" data-price="4000">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f7.jpg">
+                <div class="description">
+                    <span>Eyebogler</span>
+                    <h5>Slim Fit Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.1500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Slim Fit Dress" data-price="1500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f9.9.jpg">
+                <div class="description">
+                    <span>Siril</span>
+                    <h5>Rayon Western Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.1500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Rayon Western Dress" data-price="1500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f8.8.jpg">
+                <div class="description">
+                    <span>Selvia</span>
+                    <h5>Western Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.1500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Western Dress" data-price="1500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+        </div>
+    </section> -->
+</section>  
+
+<section id="men">
+    <h2>Men's Collection</h2> 
+    <!-- Product items -->
+    <section id="product1" class="section-p1">
+        <div class="proContainer">
+            {% for item in men_products %}
+            <div class="product">
+                <a href="{% url 'product_detail' item.id %}">
+                <img src="{{item.product_image.url}}">
+                </a>
+                <div class="description">
+                   <span>{{item.vendor}}</span> 
+                    <h5>{{item.name}}</h5>
+                    <div class="rating">
+                       <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i> 
+                    </div>
+                   <h4>Rs.{{item.selling_price}}</h4> 
+                </div>
+                <a href="#" class="add-to-cart" data-id="{{item.id}}" data-name={{item.name}} data-price="{{item.selling_price}}">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+
+            {% endfor %}
+
+
+            <!-- <div class="product">
+                <img src="img/products/f1.1.png">
+                <div class="description">
+                    <span>addidas</span>
+                    <h5>Cartoon Astronaut T-Shirts</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.1500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Cartoon Astronaut T-Shirts" data-price="1500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f2.jpg">
+                <div class="description">
+                    <span>Luna</span>
+                    <h5>Party Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.2500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Party Dress" data-price="2500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f3.3.jpg">
+                <div class="description">
+                    <span>Biba</span>
+                    <h5>Floral Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.3500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Floral Dress" data-price="3500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                   
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f4.4.webp">
+                <div class="description">
+                    <span>Liva</span>
+                    <h5>Cotton Pant</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.1000</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Cotton Pant" data-price="1000">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                    
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f5.5.jpg">
+                <div class="description">
+                    <span>addidas</span>
+                    <h5>T-Shirts</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.5500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="T-Shirts" data-price="5500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                  
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f6.6.jpg">
+                <div class="description">
+                    <span>Biba</span>
+                    <h5>Grey Ruffle Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.4000</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Grey Ruffle Dress" data-price="4000">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                   
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f7.7.jpg">
+                <div class="description">
+                    <span>Leriya fashion</span>
+                    <h5>Women Co-ord Set</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.1500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Women Co-ord Set" data-price="1500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                    
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f8.jpg">
+                <div class="description">
+                    <span>Anni Designer</span>
+                    <h5>Rayon Blend Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.1500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Rayon Blend Dress" data-price="1500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                    
+                </a>
+            </div>
+            <div class="product">
+                <img src="img/products/n8.jpg">
+                <div class="description">
+                    <span>Biba</span>
+                    <h5>Rayon Blend Shirt</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.1500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Rayon Blend Dress" data-price="1500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                    
+                </a>
+            </div>
+        </div> -->
+    </section>  
+    
+    <!-- new arrival -->
+ <!--   <section id="product1" class="section-p1">
+        <div class="proContainer">
+            <div class="product">
+                <img src="img/products/f1.jpg">
+                <div class="description">
+                    <span>Toplot</span>
+                    <h5>Cotton Blend Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.1500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Cotton Blend Dress" data-price="1500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f2.2.webp">
+                <div class="description">
+                    <span>Sheetal</span>
+                    <h5>Women Solid Black Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.2500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Women Solid Black Dress" data-price="2500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f3.jpg">
+                <div class="description">
+                    <span>Yashika</span>
+                    <h5>Printed Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.3500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Printed Dress" data-price="3500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f4.4.webp">
+                <div class="description">
+                    <span>Indo era</span>
+                    <h5>Multicolour Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.1000</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Multicolour Dress" data-price="1000">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f5.5.jpg">
+                <div class="description">
+                    <span>Presha</span>
+                    <h5>Fit and Flare Top</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.5500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Fit and Flare Top" data-price="5500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f6.6.jpg">
+                <div class="description">
+                    <span>Kzully</span>
+                    <h5>Crepe Midi Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.4000</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Crepe Midi Dress" data-price="4000">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f7.jpg">
+                <div class="description">
+                    <span>Eyebogler</span>
+                    <h5>Slim Fit Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.1500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Slim Fit Dress" data-price="1500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f9.9.jpg">
+                <div class="description">
+                    <span>Siril</span>
+                    <h5>Rayon Western Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.1500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Rayon Western Dress" data-price="1500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f8.8.jpg">
+                <div class="description">
+                    <span>Selvia</span>
+                    <h5>Western Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.1500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Western Dress" data-price="1500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+        </div>
+    </section> -->
+</section>
+
+<section id="kids">
+    <h2>Kids' Collection</h2>  
+    <!-- Product items -->
+<   <section id="product1" class="section-p1">
+        <div class="proContainer">
+            {% for item in kids_products %}
+            <div class="product">
+                <a href="{% url 'product_detail' item.id %}">
+                <img src="{{item.product_image.url}}">
+                </a>
+                <div class="description">
+                   <span>{{item.vendor}}</span> 
+                    <h5>{{item.name}}</h5>
+                    <div class="rating">
+                       <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i> 
+                    </div>
+                   <h4>Rs.{{item.selling_price}}</h4> 
+                </div>
+                <a href="#" class="add-to-cart" data-id="{{item.id}}" data-name={{item.name}} data-price="{{item.selling_price}}">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+
+            {% endfor %}
+
+
+
+
+
+
+          <!--<div class="product">
+                <img src="img/products/f1.1.png">
+                <div class="description">
+                    <span>addidas</span>
+                    <h5>Cartoon Astronaut T-Shirts</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.1500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Cartoon Astronaut T-Shirts" data-price="1500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f2.jpg">
+                <div class="description">
+                    <span>Luna</span>
+                    <h5>Party Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.2500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Party Dress" data-price="2500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f3.3.jpg">
+                <div class="description">
+                    <span>Biba</span>
+                    <h5>Floral Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.3500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Floral Dress" data-price="3500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                   
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f4.4.webp">
+                <div class="description">
+                    <span>Liva</span>
+                    <h5>Cotton Pant</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.1000</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Cotton Pant" data-price="1000">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                    
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f5.5.jpg">
+                <div class="description">
+                    <span>addidas</span>
+                    <h5>T-Shirts</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.5500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="T-Shirts" data-price="5500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                  
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f6.6.jpg">
+                <div class="description">
+                    <span>Biba</span>
+                    <h5>Grey Ruffle Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.4000</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Grey Ruffle Dress" data-price="4000">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                   
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f7.7.jpg">
+                <div class="description">
+                    <span>Leriya fashion</span>
+                    <h5>Women Co-ord Set</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.1500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Women Co-ord Set" data-price="1500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                    
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f8.jpg">
+                <div class="description">
+                    <span>Anni Designer</span>
+                    <h5>Rayon Blend Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.1500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Rayon Blend Dress" data-price="1500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                    
+                </a>
+            </div>
+            <div class="product">
+                <img src="img/products/n8.jpg">
+                <div class="description">
+                    <span>Biba</span>
+                    <h5>Rayon Blend Shirt</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.1500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Rayon Blend Dress" data-price="1500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                    
+                </a>
+            </div>
+        </div>  -->
+    </section>    
+    
+    <!-- new arrival -->
+ <!--   <section id="product1" class="section-p1">
+        <div class="proContainer">
+            <div class="product">
+                <img src="img/products/f1.jpg">
+                <div class="description">
+                    <span>Toplot</span>
+                    <h5>Cotton Blend Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.1500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Cotton Blend Dress" data-price="1500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f2.2.webp">
+                <div class="description">
+                    <span>Sheetal</span>
+                    <h5>Women Solid Black Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.2500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Women Solid Black Dress" data-price="2500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f3.jpg">
+                <div class="description">
+                    <span>Yashika</span>
+                    <h5>Printed Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.3500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Printed Dress" data-price="3500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f4.4.webp">
+                <div class="description">
+                    <span>Indo era</span>
+                    <h5>Multicolour Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.1000</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Multicolour Dress" data-price="1000">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f5.5.jpg">
+                <div class="description">
+                    <span>Presha</span>
+                    <h5>Fit and Flare Top</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.5500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Fit and Flare Top" data-price="5500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f6.6.jpg">
+                <div class="description">
+                    <span>Kzully</span>
+                    <h5>Crepe Midi Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.4000</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Crepe Midi Dress" data-price="4000">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f7.jpg">
+                <div class="description">
+                    <span>Eyebogler</span>
+                    <h5>Slim Fit Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.1500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Slim Fit Dress" data-price="1500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f9.9.jpg">
+                <div class="description">
+                    <span>Siril</span>
+                    <h5>Rayon Western Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.1500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Rayon Western Dress" data-price="1500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+    
+            <div class="product">
+                <img src="img/products/f8.8.jpg">
+                <div class="description">
+                    <span>Selvia</span>
+                    <h5>Western Dress</h5>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.1500</h4>
+                </div>
+                <a href="#" class="add-to-cart" data-name="Western Dress" data-price="1500">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </a>
+            </div>
+        </div>
+    </section> -->
+</section> 
+
+
+<script>
+    // Select all "Add to Cart" buttons
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent default link behavior
+    
+            // Retrieve product details from data attributes
+            const productId = this.getAttribute("data-id");
+            const productName = this.getAttribute("data-name");
+            const productPrice = this.getAttribute("data-price");
+    
+            // Create object to send in the request body
+            const postObj = {
+                'product_qty': 1, // Default quantity is set to 1
+                'pid': productId,
+                'name': productName,
+                'price': productPrice
+            };
+    
+            // Make a fetch request to add the item to the cart
+            fetch("/add_to_cart", {
+                method: 'POST',
+                credentials: 'same-origin',
+                headers: {
+                    'Accept': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'X-CSRFToken': '{{ csrf_token }}', // Include CSRF token
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(postObj)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                alert(data['status']); // Show success message
+            })
+            .catch(error => {
+                console.error('Error:', error); // Log any error
+                alert("An error occurred while adding to the cart."); // Inform the user
+            });
+        });
+    });
+    </script>
+        
+
+</body>
+</html>
