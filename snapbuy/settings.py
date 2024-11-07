@@ -75,7 +75,7 @@ WSGI_APPLICATION = 'snapbuy.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'website',
@@ -84,8 +84,14 @@ DATABASES = {
         'PASSWORD':'tiger',
         'PORT':'3306'
     }
-}
+}"""
 
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / 'website',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
